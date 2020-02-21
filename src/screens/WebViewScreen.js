@@ -7,9 +7,6 @@ export default () => {
   return (
     <WebView
       originWhitelist={['*']}
-      onLoad={() => console.log('end')}
-      onLoadEnd={() => console.log('end')}
-      onLoadProgress={e => console.log(e)}
       source={{
         uri: params.webViewUrl,
       }}

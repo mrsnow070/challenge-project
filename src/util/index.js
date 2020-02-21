@@ -1,3 +1,5 @@
+import qs from 'query-string';
+
 export function substactDaysFromDate(days) {
   const date = new Date();
   date.setDate(date.getDate() - days);
@@ -18,7 +20,8 @@ export const isEmptyString = data => {
 };
 
 export const parseWebViewLink = (htmlUrl, filename) => {
-  return htmlUrl + `#file-${filename.replace('.', '-')}`;
+  const file_name = qs.stringify(filename.replace('.', '-'));
+  return htmlUrl + `#file-${file_name}`;
 };
 
 export const getObjectKeys = obj => Object.keys(obj);
@@ -39,4 +42,10 @@ export const parseGistData = gist => {
   const comments = gist.comments;
 
   return {...gist, gistFiles, user, comments, description};
+};
+
+export const chunksFromArray = (array, size) => {
+  return array.length
+    ? [array.slice(0, size), ...chunksFromArray(array.slice(size), size)]
+    : [];
 };
