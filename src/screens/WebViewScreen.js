@@ -1,15 +1,18 @@
 import React from 'react';
-import {View, Text} from 'react-native';
+import {WebView} from 'react-native-webview';
 import {useRoute} from '@react-navigation/native';
 
-const WebView = () => {
+export default () => {
   const {params} = useRoute();
-
   return (
-    <View>
-      <Text>{params.title}</Text>
-    </View>
+    <WebView
+      originWhitelist={['*']}
+      onLoad={() => console.log('end')}
+      onLoadEnd={() => console.log('end')}
+      onLoadProgress={e => console.log(e)}
+      source={{
+        uri: params.webViewUrl,
+      }}
+    />
   );
 };
-
-export default WebView;

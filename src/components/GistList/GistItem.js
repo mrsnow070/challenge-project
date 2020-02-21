@@ -33,7 +33,10 @@ const GistItem = ({gist}) => {
           </View>
 
           <View style={styles.detailsItem}>
-            <MaterialCommunityIcons style={styles.icon} name="" />
+            <MaterialCommunityIcons
+              style={styles.icon}
+              name="comment-multiple-outline"
+            />
             <Text style={styles.detailsText}>{comments} comments</Text>
           </View>
         </View>

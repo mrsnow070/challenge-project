@@ -3,13 +3,13 @@ import {ScrollView, Text} from 'react-native';
 import GistFileItem from './GistFileItem';
 import {getObjectKeys} from '../../util/';
 
-const GistFiles = ({files}) => {
+const GistFiles = ({files, htmlUrl}) => {
   const keys = getObjectKeys(files);
 
   return (
     <ScrollView>
       {keys.map(k => (
-        <GistFileItem key={k} info={files[k]} />
+        <GistFileItem key={k} htmlUrl={htmlUrl} info={files[k]} />
       ))}
     </ScrollView>
   );

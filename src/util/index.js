@@ -17,6 +17,10 @@ export const isEmptyString = data => {
   return data === '';
 };
 
+export const parseWebViewLink = (htmlUrl, filename) => {
+  return htmlUrl + `#file-${filename.replace('.', '-')}`;
+};
+
 export const getObjectKeys = obj => Object.keys(obj);
 
 //takes server response and convert in structured data
