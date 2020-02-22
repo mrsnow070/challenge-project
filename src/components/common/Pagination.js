@@ -12,6 +12,7 @@ const Pagination = ({active, maxLength, setActive}) => {
       ? active
       : setActive(active - 1);
   };
+
   return (
     <View style={styles.container}>
       <TouchableOpacity onPress={() => handleActive(false)}>
@@ -47,7 +48,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     width: 30,
     height: 30,
-    backgroundColor: 'lightblue',
     marginRight: 2,
   },
   iconGray: {
